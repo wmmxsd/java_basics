@@ -1,6 +1,10 @@
 package Keyword.staticDemo;
 
-public class StaticCodeBlock {
+
+class StaticCodeBlock<E> {
+     Node<E> first;
+    Node<E> el;
+     Node<E> last;
     public StaticCodeBlock() {
         System.out.print("默认构造方法！--");
     }
@@ -12,14 +16,29 @@ public class StaticCodeBlock {
     static {
         System.out.print("静态代码块！--");
     }
-    public static void test() {
+
+    private static class Node<E> {
+        E item;
+        Node<E> next;
+        Node<E> prev;
+
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+
+    public void test() {
         System.out.print("静态方法中的内容! --");
         {
             System.out.print("静态方法中的代码块！--");
         }
+        Node<E> node = new Node(first,el,last);
     }
+
     public static void main(String[] args) {
         StaticCodeBlock test = new StaticCodeBlock();
-        StaticCodeBlock.test();
+        test.test();
     }
 }
