@@ -1,3 +1,5 @@
+package string;
+
 import java.util.Random;
 
 public class StringDemo2 {

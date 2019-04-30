@@ -16,10 +16,12 @@ public class DeadLockDemo {
 
     public static void main(String[] args) {
         new Thread(() -> {
+            System.out.println("线程1启动");
             synchronized (resource1) {
                 System.out.println(Thread.currentThread() + "get resource1");
                 try {
                     Thread.sleep(1000);
+                    System.out.println("线程1 TIME_WAITTING OVER");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -31,10 +33,12 @@ public class DeadLockDemo {
         }, "线程 1").start();
 
         new Thread(() -> {
+            System.out.println("线程2启动");
             synchronized (resource2) {
                 System.out.println(Thread.currentThread() + "get resource2");
                 try {
                     Thread.sleep(1000);
+                    System.out.println("线程2 TIME_WAITTING OVER");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

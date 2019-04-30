@@ -19,7 +19,7 @@ package Keyword.staticDemo;
 public class StaticInnerClass {
     static int a;
 
-    int b;
+    private int b;
 
     public static void test() {
         System.out.println("outer class static function");
