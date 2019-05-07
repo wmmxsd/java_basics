@@ -8,14 +8,18 @@ public class SerializableObjectTest {
         File file = new File("D:" + File.separator + "s.txt");
         OutputStream os = new FileOutputStream(file);
         ObjectOutputStream oos = new ObjectOutputStream(os);
-        oos.writeObject(new SerializableObject("str0", "str1"));
+        SerializableObject so = new SerializableObject(100, 200);
+        System.out.println("原始对象:\r\n" + so);
+        oos.writeObject(so);
         oos.close();
 
         InputStream is = new FileInputStream(file);
         ObjectInputStream ois = new ObjectInputStream(is);
-        SerializableObject so = (SerializableObject)ois.readObject();
-        System.out.println("str0 = " + so.getStr0());
-        System.out.println("str1 = " + so.getStr1());
+        SerializableObject so1 = (SerializableObject)ois.readObject();
+        System.out.println("反序列化对象 :\n\r" + so1);
         ois.close();
+        so1.setArea();
+        System.out.println("设置area后的反序列化对象:\n" + so1);
+
     }
 }
