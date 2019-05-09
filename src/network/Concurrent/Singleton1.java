@@ -1,4 +1,4 @@
-package Concurrent;
+package network.Concurrent;
 
 /**
  * 饿汉式

@@ -1,4 +1,4 @@
-package Concurrent;
+package network.Concurrent;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;

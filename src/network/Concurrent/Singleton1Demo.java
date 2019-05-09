@@ -1,4 +1,4 @@
-package Concurrent;
+package network.Concurrent;
 
 public class Singleton1Demo {
     public static void main(String[] args) {

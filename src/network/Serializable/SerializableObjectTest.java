@@ -1,4 +1,4 @@
-package Serializable;
+package network.Serializable;
 
 import java.io.*;
 
