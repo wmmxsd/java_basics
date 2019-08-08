@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics;
+package com.wmm.basics;
 
 public enum Day2 {
     LONG("long", "com.sys.common.base.enum.sysconfigtype.long"),

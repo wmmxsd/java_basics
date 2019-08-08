@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.io;
+package com.wmm.basics.io;
 
 import java.io.*;
 import java.nio.charset.Charset;

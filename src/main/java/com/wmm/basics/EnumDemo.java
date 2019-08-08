@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics;
+package com.wmm.basics;
 
 public class EnumDemo {
     enum Day{

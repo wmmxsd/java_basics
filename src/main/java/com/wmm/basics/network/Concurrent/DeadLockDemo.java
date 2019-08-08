@@ -11,8 +11,10 @@ package com.wmm.basics.network.Concurrent;
  * 4.循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。
  */
 public class DeadLockDemo {
-    private static Object resource1 = new Object();//资源 1
-    private static Object resource2 = new Object();//资源 2
+    //资源 1
+    private static Object resource1 = new Object();
+    //资源 2
+    private static Object resource2 = new Object();
 
     public static void main(String[] args) {
         new Thread(() -> {

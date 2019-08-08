@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.gc;
+package com.wmm.basics.gc;
 
 public class ReferenceCountingGc {
     Object instance = null;

@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics;
+package com.wmm.basics;
 
 public class ReturnTest {
     public static void main(String[] args) {

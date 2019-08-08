@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.packagingclass;
+package com.wmm.basics.packagingclass;
 
 /**
  * 八种基本类型

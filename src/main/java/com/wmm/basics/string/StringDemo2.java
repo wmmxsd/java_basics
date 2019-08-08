@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.string;
+package com.wmm.basics.string;
 
 import java.util.Random;
 

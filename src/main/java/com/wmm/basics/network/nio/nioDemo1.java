@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.network.nio;
+package com.wmm.basics.network.nio;
 
 import java.io.File;
 import java.io.IOException;

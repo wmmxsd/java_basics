@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.network.socket;
+package com.wmm.basics.network.socket;
 
 public class Demo {
     public static void main(String[] args) {

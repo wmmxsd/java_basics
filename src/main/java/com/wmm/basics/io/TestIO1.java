@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.io;
+package com.wmm.basics.io;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

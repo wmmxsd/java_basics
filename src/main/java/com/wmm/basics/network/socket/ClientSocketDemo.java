@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.network.socket;
+package com.wmm.basics.network.socket;
 
 import java.io.IOException;
 import java.io.OutputStream;

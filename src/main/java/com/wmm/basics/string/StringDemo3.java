@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.string;
+package com.wmm.basics.string;
 
 /**
  * 直接使用双引号声明出来的 String 对象会直接存储在常量池中。

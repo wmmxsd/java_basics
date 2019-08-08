@@ -1,4 +1,4 @@
-package main.java.com.wmm.basics.hash;
+package com.wmm.basics.hash;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,9 +14,22 @@ public class HashTest {
         this.i = i;
     }
 
+/*    @Override
     public int hashCode() {
         return i % 10;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HashTest hashTest = (HashTest) o;
+        return i == hashTest.i;
+    }*/
 
     public final static void main(String[] args) {
         HashTest a = new HashTest();
