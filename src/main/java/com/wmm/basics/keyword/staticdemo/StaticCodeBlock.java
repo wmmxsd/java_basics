@@ -1,11 +1,15 @@
 package com.wmm.basics.keyword.staticdemo;
 
 
-class StaticCodeBlock<E> {
+import com.wmm.basics.polymorphic.Person;
+
+class StaticCodeBlock<E> extends Person {
+    private Integer i = 2;
      Node<E> first;
     Node<E> el;
      Node<E> last;
     public StaticCodeBlock() {
+        super(2);
         System.out.print("默认构造方法！--");  //3
     }
     //非静态代码块 2
