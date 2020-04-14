@@ -9,6 +9,7 @@ public class demo1 {
     public static void main(String[] args) {
         List list = new ArrayList<>();
         ((ArrayList) list).trimToSize();
+        list.add(null);
         list.add("321");
         list.add("123");
         list.add(1,123);

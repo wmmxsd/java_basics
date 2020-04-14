@@ -1,6 +1,7 @@
 package com.wmm.basics.collections;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /*
  * @desc java集合中Fast-Fail的测试程序。
@@ -18,13 +19,38 @@ import java.util.*;
  */
 public class FastFailTest {
 
-    private static List<String> list = new ArrayList<String>();
-//  private static List<String> list = new CopyOnWriteArrayList<String>();
+//    private static List<String> list = new ArrayList<String>();
+  private static List<String> list = new CopyOnWriteArrayList<String>();
     public static void main(String[] args) {
+        singleThreadDelete();
 
         // 同时启动两个线程对list进行操作！
         new ThreadOne().start();
         new ThreadTwo().start();
+    }
+
+    /**
+     * 单一进程的Fast-Fail集合
+     */
+    private static void singleThreadDelete() {
+        List<Integer> myIntegerList = new ArrayList<>();
+        myIntegerList.add(0);
+        myIntegerList.add(1);
+        myIntegerList.add(2);
+        myIntegerList.add(3);
+        myIntegerList.add(4);
+        myIntegerList.add(5);
+
+        for (Iterator<Integer> it = myIntegerList.iterator(); it.hasNext(); ) {
+            Integer integer = it.next();
+            Integer element = Objects.requireNonNull(integer);
+            if (2 == element) {
+                //若使用List.remove()方法，删除元素之后再次调用next()方法时，modCount != expectedModCount抛出异常
+                //若使用Iterator.remove()方法，删除元素之后会执行modCount = expectedModCount语句，这样调用next()方法不会抛出异常。
+                //myIntegerList.remove(element);
+                it.remove();
+            }
+        }
     }
 
     private static void printAll() {
@@ -42,6 +68,7 @@ public class FastFailTest {
      * 向list中依次添加0,1,2,3,4,5，每添加一个数之后，就通过printAll()遍历整个list
      */
     private static class ThreadOne extends Thread {
+        @Override
         public void run() {
             int i = 0;
             while (i<60) {
@@ -56,6 +83,7 @@ public class FastFailTest {
      * 向list中依次添加10,11,12,13,14,15，每添加一个数之后，就通过printAll()遍历整个list
      */
     private static class ThreadTwo extends Thread {
+        @Override
         public void run() {
             int i = 10;
             while (i<160) {

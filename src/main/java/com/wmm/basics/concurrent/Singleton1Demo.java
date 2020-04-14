@@ -1,4 +1,4 @@
-package com.wmm.basics.network.Concurrent;
+package com.wmm.basics.concurrent;
 
 public class Singleton1Demo {
     public static void main(String[] args) {

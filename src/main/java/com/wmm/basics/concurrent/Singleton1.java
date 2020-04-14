@@ -1,4 +1,4 @@
-package com.wmm.basics.network.Concurrent;
+package com.wmm.basics.concurrent;
 
 /**
  * 饿汉式

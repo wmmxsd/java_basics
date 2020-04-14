@@ -9,10 +9,23 @@ public class HashMapDemo1 {
     public static void testHashMapAPIs(){
         Random random = new Random();
         HashMap map = new HashMap();
+        HashMap map1 = new HashMap();
+        HashMap map2 = new HashMap();
+
+        map1.put("1","1");
+        map1.put("2","2");
+        map1.put("3","3");
+
+        map2.put("1", "2");
+        map2.put("2", "3");
+        map1.putAll(map2);
         //put
         map.put("one", random.nextInt(10));
+        map1.put("one", random.nextInt(10));
         map.put("two", random.nextInt(10));
+        map1.put("two", random.nextInt(10));
         map.put("three", random.nextInt(10));
+        map1.put("three", random.nextInt(10));
 
         System.out.println("map:"+map);
         map.equals(2);
@@ -42,6 +55,7 @@ public class HashMapDemo1 {
         for (int i = 0; i < 30; ++i){
             map.put(i,i);
         }
+
         map.remove(20);
         //清空map(节点为Null，size为0)
         map.clear();

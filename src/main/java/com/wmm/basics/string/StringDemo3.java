@@ -9,24 +9,36 @@ package com.wmm.basics.string;
  */
 public class StringDemo3 {
     public static void main(String[] args) {
-        String str1 = "abcd";//先检查字符串常量池中有没有"abcd"，如果字符串常量池中没有，则创建一个，然后str1指向字符串常量池中的对象，如果有，则直接将str1指向"abcd""；
-        String str2 = "abcd";//先检查字符串常量池中有没有"abcd"，如果字符串常量池中没有，则创建一个，然后str1指向字符串常量池中的对象，如果有，则直接将str1指向"abcd""；
-        String str3 = new String("abcd");//堆中创建一个新的对象
-        String str4 = new String("abcd");//堆中创建一个新的对象
-        System.out.println(str1 == str2);//true
-        System.out.println(str3 == str4);//false
-        System.out.println(str1 == str3);//false
-        System.out.println(str2 == str3);//false
+        //先检查字符串常量池中有没有"abcd"，如果字符串常量池中没有，则创建一个，然后str1指向字符串常量池中的对象，如果有，则直接将str1指向"abcd""；
+        String str1 = "abcd";
+        //先检查字符串常量池中有没有"abcd"，如果字符串常量池中没有，则创建一个，然后str1指向字符串常量池中的对象，如果有，则直接将str1指向"abcd""；
+        String str2 = "abcd";
+        //堆中创建一个新的对象
+        String str3 = new String("abcd");
+        //堆中创建一个新的对象
+        String str4 = new String("abcd");
+        //true
+        System.out.println(str1 == str2);
+        //false
+        System.out.println(str3 == str4);
+        //false
+        System.out.println(str1 == str3);
+        //false
+        System.out.println(str2 == str3);
 
         str3 = str3.intern();
-        System.out.println(str1 == str3);//true
+        //true
+        System.out.println(str1 == str3);
 
         String str5 = str1 + str2;
         String str6 = str3 + str4;
         String str7 = "abcd" + "abcd";
         String str8 = "abcdabcd";
-        System.out.println(str5 == str6);//false
-        System.out.println(str5 == str7);//false
-        System.out.println(str7 == str8);//true
+        //false （因为str5是两个变量相加得到的，而只要有一个变量在运算表达式中存在，计算结果就是变量，存储在堆中，str6也是，所以是两个不同的对象，为false）
+        System.out.println(str5 == str6);
+        //false（str7是2个常量相加得到的，所以他是存储在常量池中，str5存储在堆中，故为false）
+        System.out.println(str5 == str7);
+        //true（str8是常量的，所以他是存储在常量池中，str7存储在常量池中，故为true）
+        System.out.println(str7 == str8);
     }
 }

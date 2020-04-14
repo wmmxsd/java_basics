@@ -1,4 +1,4 @@
-package com.wmm.basics.network.Concurrent;
+package com.wmm.basics.concurrent;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
