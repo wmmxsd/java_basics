@@ -1,5 +1,5 @@
 package com.wmm.basics.anonymousinnerclass;
 
 public interface People {
-    public void sit();
+    public void sit(String name);
 }

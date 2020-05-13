@@ -12,8 +12,8 @@ public class test {
         person.eat();
 
         //匿名内部类用于接口
-        People people = () -> System.out.println("大朗请坐");
-        people.sit();
+        People people = name -> System.out.println(name + "请坐");
+        people.sit("大朗");
 
         Thread thread = new Thread() {
             @Override
