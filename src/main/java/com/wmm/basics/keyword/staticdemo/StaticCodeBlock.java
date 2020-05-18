@@ -5,6 +5,7 @@ import com.wmm.basics.polymorphic.Person;
 
 class StaticCodeBlock<E> extends Person {
     private Integer i = 2;
+    private static Integer i1 = 2;
      Node<E> first;
     Node<E> el;
      Node<E> last;
