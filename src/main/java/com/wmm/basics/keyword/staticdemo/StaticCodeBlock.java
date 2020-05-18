@@ -8,7 +8,8 @@ class StaticCodeBlock<E> extends Person {
     private static Integer i1 = 2;
      Node<E> first;
     Node<E> el;
-     Node<E> last;
+    Node<E> last;
+    static String s = "1";
     public StaticCodeBlock() {
         super(2);
         System.out.print("默认构造方法！--");  //3

@@ -6,8 +6,8 @@ public class EnumDemo {
     }
     public static void main(String[] args) {
         Day[] days = new Day[]{Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY,Day.THURSDAY, Day.FRIDAY, Day.SATURDAY, Day.SUNDAY};
+        int count = 0;
         for(Day day : days){
-            int count = 0;
             System.out.println("day["+count+"].ordinal()="+day.ordinal());
             count++;
         }

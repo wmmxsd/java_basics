@@ -1,4 +1,4 @@
-package com.wmm.basics.network.Concurrent;
+package com.wmm.basics.concurrent;
 
 public class AvoidDeadLockDemo {
     private static Object resource1 = new Object();//资源 1
