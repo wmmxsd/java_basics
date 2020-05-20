@@ -12,6 +12,10 @@ public class ByteDemo {
         String binary = Integer.toBinaryString(60001);
 
         byte[] bytes = hex2Byte(hex);
+
+        int count = 2 * 8;
+        System.out.println(count);
+        System.out.println(2 << 3);
     }
 
     private static byte[] hex2Byte(String hexString) {
