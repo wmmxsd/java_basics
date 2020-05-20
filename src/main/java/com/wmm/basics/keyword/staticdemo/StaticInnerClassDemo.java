@@ -46,4 +46,10 @@ public class StaticInnerClassDemo {
             test1();
         }
     }
+
+    public static void main(String[] args) {
+        StaticInnerClassDemo staticInnerClassDemo = new StaticInnerClassDemo();
+        InnerClass innerClass = staticInnerClassDemo.new InnerClass();
+        StaticInnerClass staticInnerClass = new StaticInnerClassDemo.StaticInnerClass();
+    }
 }
