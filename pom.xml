@@ -7,7 +7,6 @@
     <groupId>com.wmm.java</groupId>
     <artifactId>java_basics</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <dependencies>
         <dependency>
             <groupId>commons-collections</groupId>
