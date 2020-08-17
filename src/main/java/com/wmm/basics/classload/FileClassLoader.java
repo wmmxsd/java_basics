@@ -51,15 +51,27 @@ public class FileClassLoader extends ClassLoader{
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        String rootDir="D:\\TECHNOLOGY\\CODE\\idea_workspace\\java_basics\\target\\classes\\com\\wmm\\basics\\classload";
+        String rootDir="D:\\TECHNOLOGY\\CODE\\idea_workspace\\java_basics\\target\\classes";
         //创建自定义文件类加载器
         FileClassLoader loader = new FileClassLoader(rootDir);
+        FileClassLoader loader1 = new FileClassLoader(rootDir);
 
         try {
             //加载指定的class文件
             Class<?> object1=loader.loadClass("com.wmm.basics.classload.Demo");
+            Class<?> object2=loader.loadClass("com.wmm.basics.classload.Demo");
+            Class<?> object3=loader1.loadClass("com.wmm.basics.classload.Demo");
+            //true
+            System.out.println(object1 == object2);
+            //true
+            System.out.println(object1 == object3);
             System.out.println(object1.newInstance().toString());
-
+            Class<?> object5=loader.findClass("com.wmm.basics.classload.Demo");
+            //attempted  duplicate class definition for name: "com/wmm/basics/classload/Demo"
+            //Class<?> object6=loader.findClass("com.wmm.basics.classload.Demo");
+            Class<?> object7=loader1.findClass("com.wmm.basics.classload.Demo");
+            //false
+            System.out.println(loader == loader1);
             //输出结果:I am DemoObj
         } catch (Exception e) {
             e.printStackTrace();
