@@ -6,10 +6,13 @@ package com.wmm.basics.classload;
  * @date @2020/4/13 17:56
  */
 public class ClassLoaderDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         System.out.println("ClassLoaderDemo's ClassLoader is " + ClassLoaderDemo.class.getClassLoader());
         System.out.println("The Parent of ClassLoaderDemo's ClassLoader is " + ClassLoaderDemo.class.getClassLoader().getParent());
         System.out.println("The GrandParent of ClassLoaderDemo's ClassLoader is " + ClassLoaderDemo.class.getClassLoader().getParent().getParent());
         System.out.println("AppClassLoader的父类加载器为ExtClassLoader ExtClassLoader的父类加载器为null，null并不代表ExtClassLoader没有父类加载器，而是 BootstrapClassLoader 。");
+        Class<String> stringClass = (Class<String>) ClassLoader.getSystemClassLoader().loadClass(String.class.getName());
+        Class<String> stringClass1 = (Class<String>) ClassLoader.getSystemClassLoader().loadClass(String.class.getName());
+        System.out.println(stringClass == stringClass1);
     }
 }

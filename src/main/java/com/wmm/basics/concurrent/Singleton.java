@@ -1,7 +1,7 @@
 package com.wmm.basics.concurrent;
 
 /**
- * 双重检查
+ * 双重检查（懒汉式）
  *优点：线程安全；延迟加载；效率较高。
  */
 public class Singleton {
