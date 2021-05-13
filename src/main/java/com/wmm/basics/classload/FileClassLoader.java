@@ -7,7 +7,7 @@ import java.io.*;
  * @Description
  * @date @2020/8/18 0:28
  */
-public class FileClassLoader extends ClassLoader{
+public class FileClassLoader extends ClassLoader {
     private String rootDir;
 
     public FileClassLoader(String rootDir) {
@@ -25,7 +25,12 @@ public class FileClassLoader extends ClassLoader{
 
     }
 
-    //编写读取字节流的方法
+    /**
+     * 编写读取字节流的方法
+     *
+     * @param className
+     * @return
+     */
     private byte[] getClassData(String className) {
         String path = classNameToPath(className);
         try {
@@ -46,33 +51,32 @@ public class FileClassLoader extends ClassLoader{
     }
 
     private String classNameToPath(String className) {
-        return rootDir + File.separatorChar
-                + className.replace('.', File.separatorChar) + ".class";
+        return rootDir + File.separatorChar + className.replace('.', File.separatorChar) + ".class";
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        String rootDir="D:\\TECHNOLOGY\\CODE\\idea_workspace\\java_basics\\target\\classes";
+        String rootDir = "E:\\work\\code\\github-workspace\\java_basics\\target\\classes";
         //创建自定义文件类加载器
         FileClassLoader loader = new FileClassLoader(rootDir);
         FileClassLoader loader1 = new FileClassLoader(rootDir);
 
         try {
-            //加载指定的class文件
-            Class<?> object1=loader.loadClass("com.wmm.basics.classload.Demo");
-            Class<?> object2=loader.loadClass("com.wmm.basics.classload.Demo");
-            Class<?> object3=loader1.loadClass("com.wmm.basics.classload.Demo");
-            //true
-            System.out.println(object1 == object2);
-            //true
-            System.out.println(object1 == object3);
-            System.out.println(object1.newInstance().toString());
-            Class<?> object5=loader.findClass("com.wmm.basics.classload.Demo");
-            //attempted  duplicate class definition for name: "com/wmm/basics/classload/Demo"
-            //Class<?> object6=loader.findClass("com.wmm.basics.classload.Demo");
-            Class<?> object7=loader1.findClass("com.wmm.basics.classload.Demo");
             //false
-            System.out.println(loader == loader1);
-            //输出结果:I am DemoObj
+            System.out.println("loader == loader1 : " + (loader == loader1));
+            //加载指定的class文件
+            Class<?> object1 = loader.loadClass("com.wmm.basics.classload.Demo");
+            Class<?> object2 = loader.loadClass("com.wmm.basics.classload.Demo");
+            Class<?> object3 = loader1.loadClass("com.wmm.basics.classload.Demo");
+            //true（loader1.loadClass("com.wmm.basics.classload.Demo")是从缓存中取的clss对象）
+            System.out.println("object1 == object3 : " + (object1 == object3));
+            //true（object2也是从缓存中取的）
+            System.out.println("object1 == object2 : " + (object1 == object2));
+            //I am DemoObj
+            System.out.println(object1.newInstance());
+            Class<?> object5 = loader.findClass("com.wmm.basics.classload.Demo");
+            Class<?> object7 = loader1.findClass("com.wmm.basics.classload.Demo");
+            //false（object7是新创建的）
+            System.out.println("object5 == object7 : " + (object5 == object7));
         } catch (Exception e) {
             e.printStackTrace();
         }
