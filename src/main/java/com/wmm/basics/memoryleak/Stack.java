@@ -6,9 +6,6 @@ import java.util.EmptyStackException;
 /**
  * 内存泄露：内存被程序使用后得不到释放使不可用内存一直堆积，最后导致可用内存越来越少，导致内存溢出
  * 内存溢出：程序请求的内存超过可分配的内存，导致内存溢出
- *
- * @author wangmingming160328
- * @date @2020/8/26 15:49
  */
 public class Stack<T> {
     private Object[] elements;
@@ -54,14 +51,17 @@ public class Stack<T> {
 
     public static void main(String[] args) throws InterruptedException {
         Stack<Long> stack = new Stack<>();
-        for (long i = 0; i < 10000000; i++) {
+        System.out.println("push start");
+        for (long i = 0; i < 100000000; i++) {
             stack.push(i);
         }
-
-        System.out.println("开始pop");
+        System.out.println("push end");
+        System.out.println("pop start");
         while (stack.size > 0) {
             stack.popWithOutMemoryLeak();
+            //stack.pop();
         }
+        System.out.println("pop end");
         Thread.sleep(100000);
         System.out.println("over");
     }

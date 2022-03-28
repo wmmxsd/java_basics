@@ -35,7 +35,7 @@ public class FileUrlClassLoader extends URLClassLoader {
         try {
             //加载指定的class文件
             Class<?> object1=loader.loadClass("com.wmm.basics.classload.Demo");
-            System.out.println(object1.newInstance().toString());
+            System.out.println(object1.newInstance());
 
             //输出结果:I am DemoObj
         } catch (Exception e) {

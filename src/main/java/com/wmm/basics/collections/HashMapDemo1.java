@@ -1,5 +1,7 @@
 package com.wmm.basics.collections;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 public class HashMapDemo1 {
@@ -59,5 +61,13 @@ public class HashMapDemo1 {
         map.remove(20);
         //清空map(节点为Null，size为0)
         map.clear();
+
+        System.out.println(BigDecimal.valueOf(random.nextFloat()).setScale(2, RoundingMode.HALF_UP).floatValue());
+        System.out.println(BigDecimal.valueOf(random.nextFloat()).setScale(2, RoundingMode.HALF_UP).floatValue());
+        System.out.println(BigDecimal.valueOf(random.nextFloat()).setScale(2, RoundingMode.HALF_UP).floatValue());
+        System.out.println(BigDecimal.valueOf(random.nextFloat()).setScale(2, RoundingMode.HALF_UP).floatValue());
+        System.out.println(BigDecimal.valueOf(random.nextFloat()).setScale(2, RoundingMode.HALF_UP).floatValue());
+        System.out.println(BigDecimal.valueOf(random.nextFloat()).setScale(2, RoundingMode.HALF_UP).floatValue());
+        System.out.println(BigDecimal.valueOf(random.nextFloat()).setScale(2, RoundingMode.HALF_UP).floatValue());
     }
 }

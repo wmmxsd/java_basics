@@ -30,7 +30,7 @@ public class LoadPropertiesFileUtil {
 
         try {
             InputStream in = new BufferedInputStream(new FileInputStream(
-                    new File(basePath)));
+                    basePath));
             Properties prop = new Properties();
 
             prop.load(in);
