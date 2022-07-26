@@ -55,7 +55,7 @@ public class FileClassLoader extends ClassLoader {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        String rootDir = "E:\\work\\code\\github-workspace\\java_basics\\target\\classes";
+        String rootDir = "E:\\code\\github-workspace\\java_basics\\target\\classes";
         //创建自定义文件类加载器
         FileClassLoader loader = new FileClassLoader(rootDir);
         FileClassLoader loader1 = new FileClassLoader(rootDir);

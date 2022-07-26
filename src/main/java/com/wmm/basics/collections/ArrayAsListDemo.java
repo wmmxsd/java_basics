@@ -23,7 +23,7 @@ public class ArrayAsListDemo {
         System.out.println(strList.size());
 
         //Arrays.asList()方法生成的List对象时Arrays类中的静态内部类，没有重写add()、remove()、clear()方法，调用AbstractList类中方法，直接抛出异常
-        //strList.add("04");
+        strList.add("04");
 
         strList.set(2, "04");
         System.out.println(strList.toString());

@@ -8,6 +8,6 @@ package com.wmm.basics.stackoverflow;
 public class App {
     public static void main(String[] args) {
         A a = new A();
-        System.out.println(a.toString());
+        System.out.println(a);
     }
 }
