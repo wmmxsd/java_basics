@@ -3,30 +3,36 @@ package com.wmm.basics.keyword.staticdemo;
 public class EmpTest {
     private Integer id;
     private Integer empLevel;
-    private String mapingOrderLevel;
+    private String mappingOrderLevel;
     private String empNo;
     private Integer orderNumLimit;
 
 
-    //外部类私有的构造方法
+    /**
+     * 外部类私有的构造方法
+     */
     private EmpTest(Builder builder) {
         setId(builder.id);
         setEmpLevel(builder.empLevel);
-        setMapingOrderLevel(builder.mapingOrderLevel);
+        setMappingOrderLevel(builder.mappingOrderLevel);
         setEmpNo(builder.empNo);
         setOrderNumLimit(builder.orderNumLimit);
     }
 
-    //对外提供初始化EmpTest类的唯一接口，通过这个方法，获得内部类的实例
+    /**
+     * 对外提供初始化EmpTest类的唯一接口，通过这个方法，获得内部类的实例
+     */
     public static Builder newBuilder() {
         return new Builder();
     }
 
-    //静态内部类：Builder
+    /**
+     * 静态内部类：Builder
+     */
     public static final class Builder {
         private Integer id;
         private Integer empLevel;
-        private String mapingOrderLevel;
+        private String mappingOrderLevel;
         private String empNo;
         private Integer orderNumLimit;
 
@@ -43,8 +49,8 @@ public class EmpTest {
             return this;
         }
 
-        public Builder mapingOrderLevel(String val) {
-            mapingOrderLevel = val;
+        public Builder mappingOrderLevel(String val) {
+            mappingOrderLevel = val;
             return this;
         }
 
@@ -57,6 +63,7 @@ public class EmpTest {
             orderNumLimit = val;
             return this;
         }
+
         //通过内部类的build方法，实例化外部类，并给其实例各个字段赋值
         public EmpTest build() {
             return new EmpTest(this);
@@ -76,12 +83,12 @@ public class EmpTest {
         this.empLevel = empLevel;
     }
 
-    public String getMapingOrderLevel() {
-        return mapingOrderLevel;
+    public String getMappingOrderLevel() {
+        return mappingOrderLevel;
     }
 
-    public void setMapingOrderLevel(String mapingOrderLevel) {
-        this.mapingOrderLevel = mapingOrderLevel;
+    public void setMappingOrderLevel(String mappingOrderLevel) {
+        this.mappingOrderLevel = mappingOrderLevel;
     }
 
     public String getEmpNo() {
