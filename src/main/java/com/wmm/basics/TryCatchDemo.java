@@ -17,9 +17,9 @@ public class TryCatchDemo {
                 if (i == 2) {
                     throw new Exception();
                 }
-                if (i== 1) {
+                /*if (i== 1) {
                     return;
-                }
+                }*/
             } catch (Exception e) {
                 e.printStackTrace();
                 return;

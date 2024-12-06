@@ -16,7 +16,7 @@ public class Controller {
     }
 
     public void run() {
-        while (eventList.size() > 0) {
+        while (!eventList.isEmpty()) {
             // Make a copy so you're not modifying the list
             // while you're selecting the elements in it:
             for (Event e : new ArrayList<>(eventList)) {

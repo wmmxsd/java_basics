@@ -17,6 +17,6 @@ public class CollectionToArrayDemo {
         List<String> list = Arrays.asList(s);
         Collections.reverse(list);
         //没有指定类型的话会报错
-        s=list.toArray(new String[0]);
+        String[] strArr =list.toArray(new String[0]);
     }
 }

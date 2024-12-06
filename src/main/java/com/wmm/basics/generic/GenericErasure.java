@@ -22,6 +22,6 @@ public class GenericErasure {
 
         //integerList是List<Integer>类型，但是通过反射可以添加字符串，证实了泛型擦除，通过javap -c xxx.class文件得知，实例化的泛型类型都为转为Object对象
         integerList.getClass().getMethod("add", Object.class).invoke(integerList, "1");
-        System.out.println(integerList.toString());
+        System.out.println(integerList);
     }
 }

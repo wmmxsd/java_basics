@@ -15,12 +15,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
  *   (02) 使用时CopyOnWriteArrayList，不会产生fast-fail事件；定义如下：
  *            private static List<String> list = new CopyOnWriteArrayList<String>();
  *
- * @author skywang
  */
 public class FastFailTest {
 
-//    private static List<String> list = new ArrayList<String>();
-  private static List<String> list = new CopyOnWriteArrayList<String>();
+    private static final List<String> list = new ArrayList<>();
+    //private static final List<String> list = new CopyOnWriteArrayList<>();
+
     public static void main(String[] args) {
         singleThreadDelete();
 
@@ -41,7 +41,7 @@ public class FastFailTest {
         myIntegerList.add(4);
         myIntegerList.add(5);
 
-        for (Iterator<Integer> it = myIntegerList.iterator(); it.hasNext(); ) {
+        for (Iterator<Integer> it = myIntegerList.iterator(); it.hasNext();) {
             Integer integer = it.next();
             Integer element = Objects.requireNonNull(integer);
             if (2 == element) {
@@ -54,13 +54,9 @@ public class FastFailTest {
     }
 
     private static void printAll() {
-        System.out.println("");
-
-        String value = null;
-        Iterator iter = list.iterator();
-        while(iter.hasNext()) {
-            value = (String)iter.next();
-            System.out.print(value+", ");
+        System.out.println();
+        for (String value : list) {
+            System.out.print(value + ", ");
         }
     }
 
@@ -71,7 +67,7 @@ public class FastFailTest {
         @Override
         public void run() {
             int i = 0;
-            while (i<60) {
+            while (i < 60) {
                 list.add(String.valueOf(i));
                 printAll();
                 i++;
@@ -86,7 +82,7 @@ public class FastFailTest {
         @Override
         public void run() {
             int i = 10;
-            while (i<160) {
+            while (i < 160) {
                 list.add(String.valueOf(i));
                 printAll();
                 i++;
