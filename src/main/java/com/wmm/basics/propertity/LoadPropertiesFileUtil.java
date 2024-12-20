@@ -140,6 +140,21 @@ public class LoadPropertiesFileUtil {
         return path;
     }
 
+    public static void getPath7() {
+        InputStream inputStream1 = ClassLoader.getSystemResourceAsStream("ftpdir.conf");
+        InputStream inputStream2 = ClassLoader.getSystemResourceAsStream("log4j.properties");
+
+        Properties properties = new Properties();
+        try {
+            properties.load(inputStream1);
+            properties.load(inputStream2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(properties.getProperty("log4j.rootLogger"));
+        System.out.println(properties.getProperty("ftpUrl"));
+    }
+
     public static void main(String[] args) {
         System.out.println(LoadPropertiesFileUtil.getPath1());
         System.out.println(LoadPropertiesFileUtil.getPath2());
@@ -147,5 +162,6 @@ public class LoadPropertiesFileUtil {
         System.out.println(LoadPropertiesFileUtil.getPath4());
         System.out.println(LoadPropertiesFileUtil.getPath5());
         System.out.println(LoadPropertiesFileUtil.getPath6());
+        getPath7();
     }
 }

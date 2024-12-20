@@ -55,7 +55,7 @@ public class FileClassLoader extends ClassLoader {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        String rootDir = "E:\\code\\github\\java_basics\\target\\classes";
+        String rootDir = "D:\\code\\github\\java_basics\\target\\classes";
         //创建自定义文件类加载器
         FileClassLoader loader = new FileClassLoader(rootDir);
         FileClassLoader loader1 = new FileClassLoader(rootDir);
@@ -74,6 +74,8 @@ public class FileClassLoader extends ClassLoader {
             //I am DemoObj
             System.out.println(object1.newInstance());
             Class<?> object5 = loader.findClass("com.wmm.basics.classload.Demo");
+            //报错！重复加载（loader (instance of  com/wmm/basics/classload/FileClassLoader): attempted  duplicate class definition for name: "com/wmm/basics/classload/Demo"）
+            //Class<?> object6 = loader.findClass("com.wmm.basics.classload.Demo");
             Class<?> object7 = loader1.findClass("com.wmm.basics.classload.Demo");
             //false（object7是新创建的）
             System.out.println("object5 == object7 : " + (object5 == object7));
