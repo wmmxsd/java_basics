@@ -94,9 +94,9 @@ public class TestIO1 {
     }
 
     public static void main(String[] args) throws IOException {
-        //printStream();
+        printStream();
         //stringNode();
         //keyIn();
-        pushback();
+        //pushback();
     }
 }

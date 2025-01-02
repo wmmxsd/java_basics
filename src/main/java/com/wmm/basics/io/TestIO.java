@@ -51,7 +51,7 @@ public class TestIO {
         try (
                 //在try()中打开文件会在结尾自动关闭
                 FileInputStream fis = new FileInputStream("tmp4.txt");
-                FileOutputStream fos = new FileOutputStream(new File("./src/main.java.com.wmm.basics.io/tmp3.txt"))) {
+                FileOutputStream fos = new FileOutputStream("tmp3.txt")) {
             byte[] buf = new byte[4];
             int hasRead = 0;
             while ((hasRead = fis.read(buf)) > 0) {
