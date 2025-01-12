@@ -140,19 +140,23 @@ public class LoadPropertiesFileUtil {
         return path;
     }
 
+    /**
+     * 一个properties对象能够加载多个配置文件。若不同文件包含相同的配置项，那么以最后加载的那个配置项为准。
+     */
     public static void getPath7() {
         InputStream inputStream1 = ClassLoader.getSystemResourceAsStream("ftpdir.conf");
         InputStream inputStream2 = ClassLoader.getSystemResourceAsStream("log4j.properties");
 
         Properties properties = new Properties();
         try {
-            properties.load(inputStream1);
             properties.load(inputStream2);
+            properties.load(inputStream1);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         System.out.println(properties.getProperty("log4j.rootLogger"));
         System.out.println(properties.getProperty("ftpUrl"));
+        System.out.println(properties.getProperty("log4j.logger.org.springframework"));
     }
 
     public static void main(String[] args) {
