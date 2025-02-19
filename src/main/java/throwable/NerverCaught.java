@@ -1,4 +1,4 @@
-package exception;
+package throwable;
 
 /**
  * RuntimeException类异常不用捕获，非RuntimeException类异常需要捕获
@@ -10,6 +10,9 @@ public class NerverCaught {
         throw new RuntimeException("exception in method1");
     }
 
+    /**
+     * RuntimeException类异常不用捕获或者抛出，method2方法中没有用try catch捕获异常，也没有通过throws关键字抛出异常
+     */
     void method2() {
         method1();
     }
@@ -24,11 +27,9 @@ public class NerverCaught {
 
     public static void main(String[] args) {
         NerverCaught nerverCaught = new NerverCaught();
-        try {
-            nerverCaught.method2();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        nerverCaught.method2();
+
         try {
             nerverCaught.method4();
         } catch (Exception e) {
